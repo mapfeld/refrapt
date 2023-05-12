@@ -129,6 +129,8 @@ class Repository:
         baseUrl = self._uri + "/"
         if self._components:
             baseUrl += "dists/" + self._distribution + "/"
+        elif len(self._distribution) > 0:
+            baseUrl += self._distribution + "/"
 
         releaseFiles = []
 
@@ -168,6 +170,8 @@ class Repository:
         baseUrl = self._uri + "/"
         if self._components:
             baseUrl += "dists/" + self._distribution + "/"
+        elif len(self._distribution) > 0:
+            baseUrl += self._distribution + "/"
 
         inReleaseFilePath = rootPath + "/" + SanitiseUri(baseUrl) + "/InRelease"
         releaseFilePath   = rootPath + "/" + SanitiseUri(baseUrl) + "/Release"
